@@ -2,13 +2,12 @@ package sample;
 
 public class ModelTable {
 
-    String id, name, email, prog;
+    String id, name;
 
-    public ModelTable(String id, String name, String email, String prog) {
+    public ModelTable(String id, String name) {
         this.id = id;
         this.name = name;
-        this.email = email;
-        this.prog = prog;
+
     }
 
     public String getId() {
@@ -27,19 +26,4 @@ public class ModelTable {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getProg() {
-        return prog;
-    }
-
-    public void setProg(String prog) {
-        this.prog = prog;
-    }
 }

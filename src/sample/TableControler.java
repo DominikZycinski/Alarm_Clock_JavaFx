@@ -24,10 +24,7 @@ public class TableControler implements Initializable {
     private TableColumn<ModelTable,String> col_id;
     @FXML
     private TableColumn<ModelTable,String> col_name;
-    @FXML
-    private TableColumn<ModelTable,String> col_email;
-    @FXML
-    private TableColumn<ModelTable,String> col_prog;
+
 
     ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
 
@@ -40,8 +37,7 @@ public class TableControler implements Initializable {
             ResultSet rs = con.createStatement().executeQuery("select * from data");
 
             while(rs.next()){
-                oblist.add(new ModelTable(rs.getString("id"),rs.getString("name"),
-                        rs.getString("email"),rs.getString("prog")));
+                oblist.add(new ModelTable(rs.getString("id"),rs.getString("name")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,8 +45,6 @@ public class TableControler implements Initializable {
 
         col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        col_prog.setCellValueFactory(new PropertyValueFactory<>("prog"));
 
         table.setItems(oblist);
     }
